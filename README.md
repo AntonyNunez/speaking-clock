@@ -20,14 +20,21 @@ You can use tests to demonstrate your solution since there is no specific requir
 Assumptions
 -----------
 I will probably need an array with some hours/minutes, but not all.
+
 I have to ensure to input value is correct (format, range, numbers, ...).
+
 To keep it simple, I will use the a.m./p.m. pattern.
+
 I will probably have to calculate the minute numbers separately: 16:41 -> 41: 4 ("forty"); 1 ("one").
 
 Running the solution
 --------------------
 Go to Run (menu) -> Run Configurations... -> Arguments (tab)
+
 Click on Variables... and select ${string_prompt}
+
 Click on Ok and click on Run.
+
 Use the Ctrl+F11 combination to run the solution quickly.
+
 Insert the desired time in the pop-up. Examples: 05:40, 12:00, 00:00, 22:07, ...
