@@ -9,10 +9,12 @@ public class SpeakingClock {
 	private static final String IT_IS = "It's ";
 	private static final String BLANK_SPACE = " ";
 	private static final String PAST = " past ";
+	private static final String TO = " to ";
 	private static final String AM = " a.m.";
 	private static final String PM = " p.m.";
 	private static final String MIDNIGHT = "It's Midnight";
 	private static final String MIDDAY = "It's Midday";
+	private static final String QUARTER = "quarter";
 
 	public static void main(String[] args) {
 		System.out.println("Time: " + args[0]);
@@ -106,9 +108,17 @@ public class SpeakingClock {
 				// Set the day time depending on the hour.
 				dayTime = PM;
 				// Hours in a range of 1 to 12 with a.m. and p.m.
-				sHours = basic[hours - 12];
+				if (minutes == 45) {
+					sHours = basic[hours - 11];
+				} else {
+					sHours = basic[hours - 12];
+				}
 			} else {
-				sHours = basic[hours];
+				if (minutes == 45) {
+					sHours = basic[hours + 1];
+				} else {
+					sHours = basic[hours];
+				}
 			}
 			
 			if (minutes >= 20) {
@@ -125,7 +135,12 @@ public class SpeakingClock {
 			
 			// Different messages depending on the minutes.
 			if (minutes < 30) {
+				if (minutes == 15) {
+					sMinutes = QUARTER;
+				}
 				result = IT_IS + sMinutes + PAST + sHours + dayTime;
+			} else if (minutes == 45) {
+				result = IT_IS + QUARTER + TO + sHours + dayTime;
 			} else {
 				result = IT_IS + sHours + BLANK_SPACE + sMinutes + dayTime;
 			}

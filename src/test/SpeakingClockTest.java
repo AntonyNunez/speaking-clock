@@ -43,6 +43,16 @@ public class SpeakingClockTest {
 		assertEquals("It's twenty past eight p.m.", SpeakingClock.convertTimeIntoWords("20:20"));
 		// TODO: check more cases
 	}
+
+	@Test
+	public void test_convertTimeIntoWords_quarterPast_ok() throws Exception {
+		assertEquals("It's quarter past eight a.m.", SpeakingClock.convertTimeIntoWords("08:15"));
+	}
+
+	@Test
+	public void test_convertTimeIntoWords_quarterTo_ok() throws Exception {
+		assertEquals("It's quarter to nine p.m.", SpeakingClock.convertTimeIntoWords("20:45"));
+	}
 	
 	// Run out of time
 	@Ignore
